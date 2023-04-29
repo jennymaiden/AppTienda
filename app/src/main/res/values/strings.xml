@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">AppTienda</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Tienda de Velcan</string>
+    <string name="nav_header_subtitle">Bienvenidos</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Opciones</string>
+
+    <string name="menu_home">Personalización</string>
+    <string name="menu_gallery">Avatar</string>
+    <string name="menu_slideshow">Venta</string>
+    <string name="escoja_un_producto">Escoja un producto</string>
+    <string name="title_bienvenido">Bienvenido a la tienda virtual.</string>
+    <string name="iniciar">Iniciar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_desing">Escoja un diseño</string>
+    <string name="dialog_title_desing">Muy bien! Haz creado el siguiente producto.</string>
+    <string name="dialog_btn_buy">Compar</string>
+    <string name="dialog_btn_avatar">Crear avatar</string>
+    <string name="test_answer">¿Que deseas hacer con el producto?</string>
+    <string name="title_avatar">Bienvenido a la personalización de su avatar</string>
+    <string name="txt_msg1">Aqui podra crear su personaje segun las caracteristicas que tenemos disponibles para ti.</string>
+    <string name="txt_msg2">Escoje el genero con el que te identificas:</string>
+    <string name="select_profile">Escoja un perfil</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="select_style">Escoja el diseño de su cabello</string>
+    <string name="title_personalization">Producto final</string>
+    <string name="lbl_msg">¡Gracias por usar nuesta aplicacion VELCAN!</string>
+    <string name="lbl_msg2">Con el trabajo realizado el diseño final seria</string>
+    <string name="lbl_msg3">¿Te ha gustado el diseño?</string>
+    <string name="lbl_msg4">Te ofrecemos la opción de tenerla fisicamente</string>
+    <string name="lbl_titlle">Tu Compra</string>
+    <string name="lbl_talla">Escoja la talla</string>
+    <string name="input_cantidad">Cantidad</string>
+    <string name="lbl_total">TOTAL</string>
+    <string name="dialog_title_buy">Excelente, estas a un paso de tener tu producto.</string>
+    <string name="lbl_msg5">Necesitamos algunos datos, para poder confirmar el pago y el envio.</string>
+    <string name="input_nombre">Nombre</string>
+    <string name="input_address">Dirección de envío</string>
+    <string name="input_city">Ciudad</string>
+    <string name="input_email">Email</string>
+    <string-array name="id_types">
+        <item>CC</item>
+        <item>TI</item>
+        <item>NIP</item>
+        <item>CE</item>
+    </string-array>
+</resources>

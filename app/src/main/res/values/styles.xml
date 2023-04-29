@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MyInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="spinnerStyle">@style/MySpinnerStyle</item>
+    </style>
+
+    <style name="MySpinnerStyle" parent="Widget.AppCompat.Spinner">
+        <!-- Customize the spinner style here -->
+    </style>
+</resources>
