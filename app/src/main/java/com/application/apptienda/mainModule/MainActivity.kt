@@ -2,6 +2,7 @@ package com.application.apptienda.mainModule
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -14,9 +15,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.application.apptienda.R
 import com.application.apptienda.databinding.ActivityMainBinding
+import com.application.apptienda.mainModule.viewModel.MainViewModel
 import com.application.apptienda.ui.buy.BuyFragment
 import com.application.apptienda.ui.buy.PaymentResultListener
-import com.application.apptienda.ui.product.ProductViewModel
+import com.application.apptienda.mainModule.viewModel.ProductViewModel
 import com.mercadopago.android.px.core.MercadoPagoCheckout
 import com.mercadopago.android.px.model.Payment
 import com.mercadopago.android.px.model.exceptions.MercadoPagoError
@@ -25,18 +27,21 @@ class MainActivity : AppCompatActivity(), PaymentResultListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    lateinit var productViewModel: ProductViewModel
     private val REQUEST_CODE = 123
+
+    //MVVM
+    private lateinit var mMainViewModel: MainViewModel
+    lateinit var productViewModel: ProductViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setSupportActionBar(binding.appBarMain.toolbar)
 
-        productViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
+        setUpViewModel()
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
@@ -51,6 +56,15 @@ class MainActivity : AppCompatActivity(), PaymentResultListener {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+    }
+
+    private fun setUpViewModel() {
+        productViewModel = ViewModelProvider(this).get(ProductViewModel::class.java)
+        mMainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+        mMainViewModel.getPaymentMethod().observe(this, {paymentMethod ->
+            Log.i("Caro: ", paymentMethod.toString())
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

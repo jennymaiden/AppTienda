@@ -14,10 +14,11 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.application.apptienda.R
 import com.application.apptienda.databinding.FragmentProfileBinding
+import com.application.apptienda.mainModule.MainActivity
 import com.application.apptienda.ui.style.Style
 import com.application.apptienda.ui.style.StyleFragment
 import com.application.apptienda.ui.style.onClickStyle
-import com.application.apptienda.utils.Urls
+import com.application.apptienda.common.constans.Urls
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 

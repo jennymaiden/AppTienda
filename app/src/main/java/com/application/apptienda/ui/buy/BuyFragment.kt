@@ -14,11 +14,13 @@ import androidx.lifecycle.LiveData
 import com.application.apptienda.R
 import com.application.apptienda.databinding.FragmentBuyBinding
 import com.application.apptienda.mainModule.MainActivity
-import com.application.apptienda.utils.Constants
-import com.application.apptienda.utils.Urls
+import com.application.apptienda.common.utils.Constants
+import com.application.apptienda.common.constans.Urls
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.mercadopago.android.px.core.MercadoPagoCheckout
+import com.mercadopago.android.px.internal.datasource.MercadoPagoPaymentConfiguration
+import com.mercadopago.android.px.internal.features.review_and_confirm.components.payment_method.PaymentMethodComponent
 import kotlin.properties.Delegates
 
 class BuyFragment : Fragment() {
@@ -70,6 +72,9 @@ class BuyFragment : Fragment() {
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .centerCrop()
             .into(imageStyle)
+
+        //Buscar los metodos de pago
+        MercadoPagoPaymentConfiguration.create()
     }
 
     private fun initComponent() {
@@ -77,15 +82,15 @@ class BuyFragment : Fragment() {
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
                 R.id.rb_s -> {
-                    Toast.makeText(requireContext(), "Selected: S", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(requireContext(), "Selected: S", Toast.LENGTH_SHORT).show()
                     (requireActivity() as MainActivity).productViewModel.setSize("S")
                 }
                 R.id.rb_m -> {
-                    Toast.makeText(requireContext(), "Selected: M", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(requireContext(), "Selected: M", Toast.LENGTH_SHORT).show()
                     (requireActivity() as MainActivity).productViewModel.setSize("M")
                 }
                 R.id.rb_l -> {
-                    Toast.makeText(requireContext(), "Selected: L", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(requireContext(), "Selected: L", Toast.LENGTH_SHORT).show()
                     (requireActivity() as MainActivity).productViewModel.setSize("L")
                 }
             }

@@ -11,9 +11,10 @@ import android.widget.TextView
 import androidx.lifecycle.LiveData
 import com.application.apptienda.R
 import com.application.apptienda.databinding.FragmentColorBinding
+import com.application.apptienda.mainModule.MainActivity
 import com.application.apptienda.ui.desing.DesingFragment
-import com.application.apptienda.utils.Constants
-import com.application.apptienda.utils.UtlisDesing
+import com.application.apptienda.common.utils.Constants
+import com.application.apptienda.common.utils.UtlisDesing
 
 class ColorFragment : Fragment() {
 
@@ -71,25 +72,25 @@ class ColorFragment : Fragment() {
 
         btnWhiteColor.setOnClickListener {
             (requireActivity() as MainActivity).productViewModel.setColor("white")
-            (requireActivity() as MainActivity).productViewModel.setPrice(PRICE_BASE+Constants.PRICE_COLOR_WHITE)
+            (requireActivity() as MainActivity).productViewModel.setPrice(PRICE_BASE+ Constants.PRICE_COLOR_WHITE)
             imageclothes.setImageResource(UtlisDesing.getChageColor("White", myType.value))
         }
 
         btnBlackColor.setOnClickListener {
             (requireActivity() as MainActivity).productViewModel.setColor("black")
-            (requireActivity() as MainActivity).productViewModel.setPrice(PRICE_BASE+Constants.PRICE_COLOR_BLACK)
+            (requireActivity() as MainActivity).productViewModel.setPrice(PRICE_BASE+ Constants.PRICE_COLOR_BLACK)
             imageclothes.setImageResource(UtlisDesing.getChageColor("Black", myType.value))
         }
 
         btnBlueColor.setOnClickListener {
             (requireActivity() as MainActivity).productViewModel.setColor("blue")
-            (requireActivity() as MainActivity).productViewModel.setPrice(PRICE_BASE+Constants.PRICE_COLOR_BLUE)
+            (requireActivity() as MainActivity).productViewModel.setPrice(PRICE_BASE+ Constants.PRICE_COLOR_BLUE)
             imageclothes.setImageResource(UtlisDesing.getChageColor("Blue", myType.value))
         }
 
         btnRedColor.setOnClickListener {
             (requireActivity() as MainActivity).productViewModel.setColor("red")
-            (requireActivity() as MainActivity).productViewModel.setPrice(PRICE_BASE+Constants.PRICE_COLOR_RED)
+            (requireActivity() as MainActivity).productViewModel.setPrice(PRICE_BASE+ Constants.PRICE_COLOR_RED)
             imageclothes.setImageResource(UtlisDesing.getChageColor("Red", myType.value))
         }
 

@@ -1,4 +1,4 @@
-package com.application.apptienda.utils
+package com.application.apptienda.common.constans
 object Urls {
     const val SWEATER_BLACK = "https://i.ibb.co/PrQSyrC/buzo-negro.png"
     const val SWEATER_BLUE = "https://i.ibb.co/S527wCQ/buzo-azul.png"

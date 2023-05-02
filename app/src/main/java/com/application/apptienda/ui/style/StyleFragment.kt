@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
@@ -17,8 +16,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.application.apptienda.R
 import com.application.apptienda.databinding.FragmentStyleBinding
+import com.application.apptienda.mainModule.MainActivity
 import com.application.apptienda.ui.personalization.PersonalizationFragment
-import com.application.apptienda.utils.Urls
+import com.application.apptienda.common.constans.Urls
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 
@@ -72,7 +72,7 @@ class StyleFragment : Fragment(), onClickStyle {
         val btnHairRed: ImageButton = binding.btnHairRed
 
         btnStyle.setOnClickListener {
-            Toast.makeText(requireContext(), "Boton de estilo", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(requireContext(), "Boton de estilo", Toast.LENGTH_SHORT).show()
             val personalizationFragment = PersonalizationFragment()
             val transaction = parentFragmentManager.beginTransaction()
             transaction.replace(R.id.nav_host_fragment_content_main, personalizationFragment)
@@ -84,7 +84,7 @@ class StyleFragment : Fragment(), onClickStyle {
         }
 
         btnHairBlack.setOnClickListener {
-            Toast.makeText(requireContext(), "Boton de btnHairBlack", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(requireContext(), "Boton de btnHairBlack", Toast.LENGTH_SHORT).show()
             (requireActivity() as MainActivity).productViewModel.setHairColor("BLACK")
             val test = "${myGenero.value}_PERFIL${myProfile.value}_HAIR${posicion}_BLACK"
             Log.i("CARO", "la constante es: ${test}")
@@ -96,7 +96,7 @@ class StyleFragment : Fragment(), onClickStyle {
         }
 
         btnHairBrown.setOnClickListener {
-            Toast.makeText(requireContext(), "Boton de btnHairBrown", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(requireContext(), "Boton de btnHairBrown", Toast.LENGTH_SHORT).show()
             (requireActivity() as MainActivity).productViewModel.setHairColor("BROWN")
             val test = "${myGenero.value}_PERFIL${myProfile.value}_HAIR${posicion}_BROWN"
             Log.i("CARO", "la constante es: ${test}")
@@ -108,7 +108,7 @@ class StyleFragment : Fragment(), onClickStyle {
         }
 
         btnHairRed.setOnClickListener {
-            Toast.makeText(requireContext(), "Boton de btnHairRed", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(requireContext(), "Boton de btnHairRed", Toast.LENGTH_SHORT).show()
             (requireActivity() as MainActivity).productViewModel.setHairColor("RED")
             val test = "${myGenero.value}_PERFIL${myProfile.value}_HAIR${posicion}_RED"
             Log.i("CARO", "la constante es: ${test}")
@@ -127,7 +127,7 @@ class StyleFragment : Fragment(), onClickStyle {
     }
 
     override fun onClick(style: Style, position: Int) {
-        Toast.makeText(requireContext(), "Hola el style es ${style.desingName}", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(requireContext(), "Hola el style es ${style.desingName}", Toast.LENGTH_SHORT).show()
         (requireActivity() as MainActivity).productViewModel.setHair(position+1)
         //GIRL_PERFIL1_HAIR1_BLACK
         posicion = position+1

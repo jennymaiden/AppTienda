@@ -8,9 +8,10 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import com.application.apptienda.R
 import com.application.apptienda.databinding.FragmentProductBinding
+import com.application.apptienda.mainModule.MainActivity
 import com.application.apptienda.ui.color.ColorFragment
-import com.application.apptienda.utils.Constants
-import com.application.apptienda.utils.Urls
+import com.application.apptienda.common.utils.Constants
+import com.application.apptienda.common.constans.Urls
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 

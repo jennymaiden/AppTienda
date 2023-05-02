@@ -15,8 +15,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import com.application.apptienda.R
 import com.application.apptienda.databinding.FragmentDesingBinding
-import com.application.apptienda.utils.Constants
-import com.application.apptienda.utils.UtlisDesing
+import com.application.apptienda.mainModule.MainActivity
+import com.application.apptienda.common.utils.Constants
+import com.application.apptienda.common.utils.UtlisDesing
 
 class DesingFragment : Fragment(), onClickListener {
 

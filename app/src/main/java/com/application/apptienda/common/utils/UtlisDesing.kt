@@ -1,4 +1,4 @@
-package com.application.apptienda.utils
+package com.application.apptienda.common.utils
 
 import android.content.Context
 import com.application.apptienda.R

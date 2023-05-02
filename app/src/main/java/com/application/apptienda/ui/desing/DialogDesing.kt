@@ -9,7 +9,7 @@ import androidx.fragment.app.DialogFragment
 import com.application.apptienda.R
 import com.application.apptienda.ui.avatar.AvatarFragment
 import com.application.apptienda.ui.buy.BuyFragment
-import com.application.apptienda.utils.UtlisDesing
+import com.application.apptienda.common.utils.UtlisDesing
 
 class DialogDesing: DialogFragment() {
 

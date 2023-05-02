@@ -1,4 +1,4 @@
-package com.application.apptienda.utils
+package com.application.apptienda.common.utils
 
 object Constants {
     const val PRICE_SHIRT = 10000
@@ -13,4 +13,8 @@ object Constants {
     const val GIRL = "GIRL"
     const val PUBLIC_KEY = "TEST-4ee3f51d-9448-4e96-a083-b10a596a1bc0"
     const val ACCESS_TOKEN = "TEST-5345437165713539-042217-264c1b2d80dea7db5f1144762d39f4ec-533578457"
+    const val URL_MERCADOPAGO= "https://api.mercadopago.com"
+    const val STATUS_PROPERTY = "status"
+    const val SUCCESS = 1
+    const val ERROR = 2
 }

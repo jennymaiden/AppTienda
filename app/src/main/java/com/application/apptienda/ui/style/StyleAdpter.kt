@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.application.apptienda.R
 import com.application.apptienda.databinding.DesingItemBinding
-import com.application.apptienda.ui.desing.onClickListener
-import com.application.apptienda.utils.Urls
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 

@@ -1,9 +1,9 @@
-package com.application.apptienda.ui.product
+package com.application.apptienda.mainModule.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import java.util.Objects
+import com.application.apptienda.mainModule.model.MainInterator
 
 class ProductViewModel : ViewModel() {
 
@@ -106,4 +106,5 @@ class ProductViewModel : ViewModel() {
     fun setQuantity(newValue: Int) {
         quantity.value = newValue
     }
+
 }

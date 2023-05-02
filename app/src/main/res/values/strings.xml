@@ -17,7 +17,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="select_desing">Escoja un diseño</string>
     <string name="dialog_title_desing">Muy bien! Haz creado el siguiente producto.</string>
-    <string name="dialog_btn_buy">Compar</string>
+    <string name="dialog_btn_buy">Comprar</string>
     <string name="dialog_btn_avatar">Crear avatar</string>
     <string name="test_answer">¿Que deseas hacer con el producto?</string>
     <string name="title_avatar">Bienvenido a la personalización de su avatar</string>
@@ -41,6 +41,7 @@
     <string name="input_address">Dirección de envío</string>
     <string name="input_city">Ciudad</string>
     <string name="input_email">Email</string>
+    <string name="comprar">Comprar</string>
     <string-array name="id_types">
         <item>CC</item>
         <item>TI</item>

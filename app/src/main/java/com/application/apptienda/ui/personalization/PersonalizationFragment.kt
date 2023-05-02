@@ -11,9 +11,10 @@ import android.widget.ImageView
 import androidx.lifecycle.LiveData
 import com.application.apptienda.R
 import com.application.apptienda.databinding.FragmentPersonalizationBinding
+import com.application.apptienda.mainModule.MainActivity
 import com.application.apptienda.ui.buy.BuyFragment
-import com.application.apptienda.utils.Urls
-import com.application.apptienda.utils.UtlisDesing
+import com.application.apptienda.common.constans.Urls
+import com.application.apptienda.common.utils.UtlisDesing
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 
