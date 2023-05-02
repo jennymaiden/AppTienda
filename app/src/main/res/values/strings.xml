@@ -42,6 +42,13 @@
     <string name="input_city">Ciudad</string>
     <string name="input_email">Email</string>
     <string name="comprar">Comprar</string>
+    <string name="dialog_como_pagar">¿Cómo quieres pagar?</string>
+    <string name="mercado_pago">Con Mercado Pago</string>
+    <string name="input_numero_tarjeta">Número de tarjeta</string>
+    <string name="input_nombre_apellido">Nombre y apellido</string>
+    <string name="input_fecha">Fecha de expiración</string>
+    <string name="input_codigo">Código de seguridad</string>
+    <string name="input_numero">Número</string>
     <string-array name="id_types">
         <item>CC</item>
         <item>TI</item>
