@@ -77,7 +77,9 @@
             android:id="@+id/etNumeroTarjeta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"/>
+            android:inputType="number"
+            android:digits="0123456789 "
+            android:maxLength="19"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -127,7 +129,9 @@
             android:id="@+id/etCodigo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"/>
+            android:inputType="number"
+            android:digits="0123456789 "
+            android:maxLength="3"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

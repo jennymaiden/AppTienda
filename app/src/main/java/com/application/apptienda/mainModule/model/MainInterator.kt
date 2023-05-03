@@ -27,4 +27,8 @@ class MainInterator {
         StoreApplication.paymentMethodAPI.addToRequestQueue(jsonObjectRequest)
 
     }
+
+    fun getCheckoutPayment(){
+        val urlCheckoutPayment = "${Constants.URL_MERCADOPAGO}/checkout/preferences?access_token=${Constants.ACCESS_TOKEN}"
+    }
 }

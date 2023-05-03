@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), PaymentResultListener {
     private val REQUEST_CODE = 123
 
     //MVVM
-    private lateinit var mMainViewModel: MainViewModel
+    lateinit var mMainViewModel: MainViewModel
     lateinit var productViewModel: ProductViewModel
 
 
