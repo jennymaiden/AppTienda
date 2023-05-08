@@ -17,4 +17,5 @@ object Constants {
     const val STATUS_PROPERTY = "status"
     const val SUCCESS = 1
     const val ERROR = 2
+    const val REQUEST_CODE = 123
 }

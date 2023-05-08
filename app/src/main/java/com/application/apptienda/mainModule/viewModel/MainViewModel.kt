@@ -3,9 +3,7 @@ package com.application.apptienda.mainModule.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.application.apptienda.common.entities.PaymentEntity
-import com.application.apptienda.common.entities.PaymentMethodEntities
-import com.application.apptienda.common.entities.UserEntity
+import com.application.apptienda.common.entities.*
 import com.application.apptienda.mainModule.model.MainInterator
 
 class MainViewModel : ViewModel() {
@@ -14,6 +12,7 @@ class MainViewModel : ViewModel() {
     private var interactor: MainInterator
     private val _formDataUser = MutableLiveData<UserEntity>()
     private val formData: LiveData<UserEntity> = _formDataUser
+    private val preferences: MutableLiveData<CheckoutResponseEntity>
 
     private val _formDataPayment = MutableLiveData<PaymentEntity>()
     private val formDataPayment: LiveData<PaymentEntity> = _formDataPayment
@@ -29,6 +28,7 @@ class MainViewModel : ViewModel() {
 
     init {
         paymentMethodList = mutableListOf()
+        preferences =  MutableLiveData()
         interactor = MainInterator()
     }
 
@@ -37,6 +37,7 @@ class MainViewModel : ViewModel() {
             loadPaymentMethod()
         }
     }
+
 
     fun getPaymentMethod(): LiveData<MutableList<PaymentMethodEntities>> {
         return paymentMethod
@@ -54,6 +55,15 @@ class MainViewModel : ViewModel() {
         interactor.getPaymentMethod {
             paymentMethod.value = it
             paymentMethodList = it
+        }
+    }
+
+    fun getPreferenceId(checkoutEntity: CheckoutEntity, callback: (String?) -> Unit){
+        interactor.getCheckoutPayment(checkoutEntity) { preferences ->
+
+            // Llamar al callback con preferences
+            callback(preferences)
+
         }
     }
 }

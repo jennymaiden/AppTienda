@@ -1,5 +1,6 @@
 package com.application.apptienda.ui.buy
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
@@ -16,14 +17,16 @@ import com.application.apptienda.databinding.FragmentBuyBinding
 import com.application.apptienda.mainModule.MainActivity
 import com.application.apptienda.common.utils.Constants
 import com.application.apptienda.common.constans.Urls
+import com.application.apptienda.ui.desing.DialogDesing
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.mercadopago.android.px.core.MercadoPagoCheckout
 import com.mercadopago.android.px.internal.datasource.MercadoPagoPaymentConfiguration
 import com.mercadopago.android.px.internal.features.review_and_confirm.components.payment_method.PaymentMethodComponent
+import java.math.BigDecimal
 import kotlin.properties.Delegates
 
-class BuyFragment : Fragment() {
+class BuyFragment : Fragment(), DialogListener {
 
     private var _binding: FragmentBuyBinding? = null
 
@@ -35,6 +38,8 @@ class BuyFragment : Fragment() {
     private lateinit var quantity2: LiveData<Int>
     private var myPrice by Delegates.notNull<Int>()
     private lateinit var url: String
+    private lateinit var preferencia: String
+    private var dialogListener: DialogListener? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,6 +47,7 @@ class BuyFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentBuyBinding.inflate(inflater, container, false)
+        Log.i("CARO xxx onCreateView ", "Imprime esto")
         initModel()
         initView()
         initComponent()
@@ -74,7 +80,7 @@ class BuyFragment : Fragment() {
             .into(imageStyle)
 
         //Buscar los metodos de pago
-        MercadoPagoPaymentConfiguration.create()
+
     }
 
     private fun initComponent() {
@@ -97,8 +103,11 @@ class BuyFragment : Fragment() {
         }
 
         val etCantidad = binding.etCantidad
+        etCantidad.minValue = 0 // Valor mínimo
+        etCantidad.maxValue = 10 // Valor máximo
+        etCantidad.value = 0 // Valor inicial
 
-        etCantidad.addTextChangedListener(object : TextWatcher {
+        /*etCantidad.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -112,13 +121,24 @@ class BuyFragment : Fragment() {
                     // Do something with the numeric value
                 }
             }
-        })
+        })*/
+
+        etCantidad.setOnValueChangedListener { picker, oldVal, newVal ->
+            // Aquí puedes realizar acciones basadas en el nuevo valor seleccionado
+            (requireActivity() as MainActivity).productViewModel.setQuantity(newVal)
+        }
 
         val btnBuy: Button = binding.btnBuy
 
         btnBuy.setOnClickListener{
-            //startMercadoPagoCheckout()
+            val bundle = Bundle().apply {
+                putString("title", (requireActivity() as MainActivity).productViewModel.getType().value!!)
+                putString("description", (requireActivity() as MainActivity).productViewModel.getColor().value!!)
+                putInt("quantity", (requireActivity() as MainActivity).productViewModel.getQuantity().value!!)
+                putInt("unit_price", (requireActivity() as MainActivity).productViewModel.getPrice().value!!)
+            }
             val dialogView = DialogBuy()
+            dialogView.arguments = bundle
             dialogView.show(parentFragmentManager, "MyDialog")
 
         }
@@ -160,4 +180,19 @@ class BuyFragment : Fragment() {
             }
         }
     }
+
+    override fun onDialogDataPassed(data: String) {
+        Log.i("se cerroe el diaglos y tenemos la preferencia ", "Imprime esto")
+        preferencia = data
+
+    }
+
+    override fun onDialogClosed() {
+        Log.i("onDialogClosed ::::::: preferencia", preferencia)
+
+        val mercadoPagoCheckout = MercadoPagoCheckout.Builder(Constants.PUBLIC_KEY, preferencia)
+            .build()
+        mercadoPagoCheckout.startPayment(requireContext(), Constants.REQUEST_CODE)
+    }
+
 }

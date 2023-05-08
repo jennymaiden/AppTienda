@@ -1,13 +1,19 @@
 package com.application.apptienda.mainModule.model
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.JsonObjectRequest
 import com.application.apptienda.StoreApplication
+import com.application.apptienda.common.entities.CheckoutEntity
+import com.application.apptienda.common.entities.CheckoutResponseEntity
 import com.application.apptienda.common.entities.PaymentMethodEntities
 import com.application.apptienda.common.utils.Constants
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import org.json.JSONObject
+
 
 
 class MainInterator {
@@ -28,7 +34,31 @@ class MainInterator {
 
     }
 
-    fun getCheckoutPayment(){
+    fun getCheckoutPayment(checkoutEntity: CheckoutEntity, callback: (String?) -> Unit ){
         val urlCheckoutPayment = "${Constants.URL_MERCADOPAGO}/checkout/preferences?access_token=${Constants.ACCESS_TOKEN}"
+
+        val jsonParams = JSONObject(checkoutEntity.toString())
+        Log.i("CARO EL JSON DE ENVIO getCheckoutPayment", jsonParams.toString())
+
+        val jsonObjectRequest = object : JsonObjectRequest(Method.POST, urlCheckoutPayment, jsonParams, { response ->
+            Log.i("response getCheckoutPayment", response.toString())
+            val preferenceId = response.optString("id")
+
+            //val mutableListType = object : TypeToken<MutableLiveData<CheckoutResponseEntity>>(){}.type
+            //val result = Gson().fromJson<MutableLiveData<CheckoutResponseEntity>>(response.toString(), mutableListType)
+            callback(preferenceId)
+        }, {
+            it.printStackTrace()
+            Log.i("ERROR", "AL CONSUMIR EL API DE CHECK DE PAGOS")
+        }){
+            override fun getHeaders(): MutableMap<String, String> {
+                val params = HashMap<String, String>()
+
+                params["Content-Type"] = "application/json"
+                return params
+            }
+        }
+
+        StoreApplication.paymentMethodAPI.addToRequestQueue(jsonObjectRequest)
     }
 }

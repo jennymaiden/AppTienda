@@ -85,8 +85,15 @@ android:layout_height="match_parent">
                 android:layout_height="wrap_content"
                 android:text="L" />
         </RadioGroup>
-
-        <com.google.android.material.textfield.TextInputLayout
+        <NumberPicker
+            android:id="@+id/etCantidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/groupRadio"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+        <!--<com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
@@ -95,19 +102,24 @@ android:layout_height="match_parent">
             app:layout_constraintTop_toBottomOf="@id/groupRadio"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
-            <com.google.android.material.textfield.TextInputEditText
+            &lt;!&ndash;<com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etCantidad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:inputType="number"/>&ndash;&gt;
+            <NumberPicker
+                android:id="@+id/etCantidad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>-->
         <View
             android:id="@+id/line3"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="16dp"
             android:background="@color/grey"
-            app:layout_constraintTop_toBottomOf="@id/input"/>
+            app:layout_constraintTop_toBottomOf="@id/etCantidad"/>
         <TextView
             android:id="@+id/lbl_total"
             android:layout_width="wrap_content"
@@ -142,7 +154,15 @@ android:layout_height="match_parent">
             app:layout_constraintEnd_toEndOf="parent"
             />
 
-
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbl_title_profile"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

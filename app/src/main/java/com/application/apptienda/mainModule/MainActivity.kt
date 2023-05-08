@@ -14,11 +14,14 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.application.apptienda.R
+import com.application.apptienda.common.utils.Constants
 import com.application.apptienda.databinding.ActivityMainBinding
 import com.application.apptienda.mainModule.viewModel.MainViewModel
 import com.application.apptienda.ui.buy.BuyFragment
 import com.application.apptienda.ui.buy.PaymentResultListener
 import com.application.apptienda.mainModule.viewModel.ProductViewModel
+import com.application.apptienda.ui.buy.DialogBuy
+import com.application.apptienda.ui.buy.DialogListener
 import com.mercadopago.android.px.core.MercadoPagoCheckout
 import com.mercadopago.android.px.model.Payment
 import com.mercadopago.android.px.model.exceptions.MercadoPagoError
@@ -27,7 +30,7 @@ class MainActivity : AppCompatActivity(), PaymentResultListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    private val REQUEST_CODE = 123
+    private lateinit var preferencia: String
 
     //MVVM
     lateinit var mMainViewModel: MainViewModel
@@ -87,9 +90,10 @@ class MainActivity : AppCompatActivity(), PaymentResultListener {
     // Implementar el método onActivityResult en la actividad
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == REQUEST_CODE) {
+        Log.i("onActivityResult ::::: ", requestCode.toString())
+        if (requestCode == Constants.REQUEST_CODE) {
             if (resultCode == MercadoPagoCheckout.PAYMENT_RESULT_CODE) {
+                Log.i("MercadoPagoCheckout.PAYMENT_RESULT_CODE ::::: ", resultCode.toString())
                 // El pago se completó exitosamente
                 val payment = data?.getSerializableExtra(MercadoPagoCheckout.EXTRA_PAYMENT_RESULT) as? Payment
                 if (payment != null) {
