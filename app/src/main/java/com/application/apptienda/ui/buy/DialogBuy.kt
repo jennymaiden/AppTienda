@@ -30,10 +30,11 @@ class DialogBuy: DialogFragment() {
     private lateinit var emailInput: EditText
     private lateinit var ciudadInput: EditText
     private lateinit var user : UserEntity
-    private var dialogListener: DialogListener? = null
+    var dialogListener: DialogListener? = null
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = Dialog(requireContext())
+
 
         val dialogView = layoutInflater.inflate(R.layout.dialog_form_buy, null)
         nombreInput = dialogView.findViewById(R.id.etNombre)
@@ -92,6 +93,7 @@ class DialogBuy: DialogFragment() {
     }
 
     private fun closeDialog() {
+        Log.i("BuyFragment", "El diálogo se ha cerrado")
         dialogListener?.onDialogClosed()
         Log.i("Entra ","closeDialog" )
         dismiss()

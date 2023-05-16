@@ -39,7 +39,6 @@ class BuyFragment : Fragment(), DialogListener {
     private var myPrice by Delegates.notNull<Int>()
     private lateinit var url: String
     private lateinit var preferencia: String
-    private var dialogListener: DialogListener? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -138,6 +137,7 @@ class BuyFragment : Fragment(), DialogListener {
                 putInt("unit_price", (requireActivity() as MainActivity).productViewModel.getPrice().value!!)
             }
             val dialogView = DialogBuy()
+            dialogView.dialogListener = this
             dialogView.arguments = bundle
             dialogView.show(parentFragmentManager, "MyDialog")
 
@@ -188,6 +188,7 @@ class BuyFragment : Fragment(), DialogListener {
     }
 
     override fun onDialogClosed() {
+        Log.i("BuyFragment del fragmento", "El diálogo se ha cerrado")
         Log.i("onDialogClosed ::::::: preferencia", preferencia)
 
         val mercadoPagoCheckout = MercadoPagoCheckout.Builder(Constants.PUBLIC_KEY, preferencia)

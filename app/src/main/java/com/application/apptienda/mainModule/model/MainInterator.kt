@@ -49,7 +49,9 @@ class MainInterator {
             callback(preferenceId)
         }, {
             it.printStackTrace()
+
             Log.i("ERROR", "AL CONSUMIR EL API DE CHECK DE PAGOS")
+            Log.i("ERROR", it.toString())
         }){
             override fun getHeaders(): MutableMap<String, String> {
                 val params = HashMap<String, String>()
